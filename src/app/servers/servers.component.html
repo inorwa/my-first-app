@@ -18,13 +18,3 @@
 <app-server></app-server>
 <app-server></app-server>
 
-<hr>
-
-<input
-  type="text"
-  class="form-control"
-  [(ngModel)]="username">
-<p><strong>{{username}}</strong></p>
-<button [disabled]="username==0" class="btn btn-primary " (click)="clearUsername()">Clear</button>
-<hr>
-
