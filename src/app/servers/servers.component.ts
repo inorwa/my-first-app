@@ -18,7 +18,7 @@ export class ServersComponent implements OnInit {
   servers = ['Testserver', 'Testserver 2'];
   showDetails = false;
 
-  detailsLogs  = [];
+  detailsLogs:LogComponent[]  = [];
 
   constructor() {
     setTimeout(() => {
@@ -36,14 +36,27 @@ export class ServersComponent implements OnInit {
   }
 
   onDisplayDetails(){
-    var  date = new Date();
+    let log = new LogComponent();
+    log.id = this.detailsLogs.length + 1;
+    log.timestamp = new Date();
     if(this.showDetails){
-      this.detailsLogs.push(new LogComponent(this.detailsLogs.length + 1,date,"details disabled")  );
+      console.log('add details');
+      this.detailsLogs.push();
       this.showDetails = false;
+      log.message = "details disabled";
+
+      console.log(log);
+      this.detailsLogs.push(log);
     }else{
-      this.detailsLogs.push(new LogComponent(this.detailsLogs.length + 1,date,"details enabled")  );
+      console.log('add details');
       this.showDetails = true;
+      log.message = "details enabled";
+
+      console.log(log);
+      this.detailsLogs.push(log);
+
     }
+    console.log(this.detailsLogs);
   }
 
   onUpdateServerName(event: any) {

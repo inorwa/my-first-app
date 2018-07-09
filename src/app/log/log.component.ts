@@ -7,20 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LogComponent implements OnInit {
   id: number = 0;
-  message: string = '';
-  timestamp: Date = new Date();
-
-  constructor(id:number,timestamp:Date,message:string) {
-    this.id = id;
-    this.timestamp = timestamp;
-    this.message = message;
-  }
+  message: string = 'uuu';
+  timestamp: Date = new Date(0);
 
   ngOnInit() {
   }
-
+  /*
   toString(){
     return this.timestamp.toLocaleTimeString() + ":" + this.message;
   }
+  */
 
 }

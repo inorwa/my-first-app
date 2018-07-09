@@ -26,6 +26,6 @@
 <app-server *ngFor="let server of servers"></app-server>
 
 <hr>
-<app-log *ngFor="let log of detailsLogs"></app-log>
+<app-log *ngFor="let log of detailsLogs" [data]="log"></app-log>
 
 
