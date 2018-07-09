@@ -14,9 +14,18 @@
         (click)="onCreateServer($event)">
   Add  Server
 </button>
+<p>
+<button class="btn btn-primary" (click)="onDisplayDetails()">
+  Display Details
+</button>
+</p>
+<p *ngIf="showDetails">Secret Password = tuna</p>
 <!-- <p> [innerText]= allowNewServer  </p> -->
 <!--<p>{{ serverCreationsStatus }}</p>-->
 <p *ngIf="serverCreated">Server was created, server name is {{serverName}}</p>
 <app-server *ngFor="let server of servers"></app-server>
+
+<hr>
+<app-log *ngFor="let log of detailsLogs"></app-log>
 
 

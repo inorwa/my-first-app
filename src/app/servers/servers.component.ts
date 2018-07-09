@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {LogComponent} from '../log/log.component';
+
 
 @Component({
   selector: 'app-servers',
@@ -14,6 +16,9 @@ export class ServersComponent implements OnInit {
   serverName = 'Testserver';
   serverCreated = false;
   servers = ['Testserver', 'Testserver 2'];
+  showDetails = false;
+
+  detailsLogs  = [];
 
   constructor() {
     setTimeout(() => {
@@ -28,6 +33,17 @@ export class ServersComponent implements OnInit {
     this.serverCreated = true;
     this.servers.push(this.serverName);
     this.serverCreationsStatus = 'Server was created! Name is ' + this.serverName;
+  }
+
+  onDisplayDetails(){
+    var  date = new Date();
+    if(this.showDetails){
+      this.detailsLogs.push(new LogComponent(this.detailsLogs.length + 1,date,"details disabled")  );
+      this.showDetails = false;
+    }else{
+      this.detailsLogs.push(new LogComponent(this.detailsLogs.length + 1,date,"details enabled")  );
+      this.showDetails = true;
+    }
   }
 
   onUpdateServerName(event: any) {
